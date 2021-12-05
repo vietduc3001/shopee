@@ -12,12 +12,86 @@
     list-style: none;
     padding-left: 0px;
     margin: 4px 0 0 0;
+    display: flex;
 }
 
 .header__navbar-item {
     margin: 0 8px;
     position: relative;
     min-height: 16px;
+}
+
+.header__navbar-user {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.header__navbar-user-img {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.header__navbar-user-name {
+    margin-left: 4px;
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+.header__navbar-user:hover .header__navbar-user-menu {
+    display: block;
+}
+
+.header__navbar-user-menu {
+    position: absolute;
+    padding-left: 0;
+    top: 100%;
+    right: 0;
+    width: 160px;
+    border-radius: 2px;
+    background-color: var(--white-color);
+    list-style: none;
+    z-index: 1;
+    box-shadow: 0 2px 6px #999;
+    display: none;
+}
+
+.header__navbar-user-menu::before {
+    content: "";
+    border-width: 7px 10px;
+    border-style: solid;
+    border-color: transparent transparent var(--white-color) transparent;
+    position: absolute;
+    right: 16px;
+    top: -14px;
+}
+
+.header__navbar-user-item-separate {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.header__navbar-user-item a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.4rem;
+    padding: 6px 16px;
+    display: block;
+}
+
+.header__navbar-user-item a:hover {
+    background-color: #ddd;
+}
+
+.header__navbar-user-item a:first-child {
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
+.header__navbar-user-item a:last-child {
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
 }
 
 .header__navbar-item--has-qr:hover .header__qr {
@@ -31,7 +105,7 @@
 .header__navbar-item,
 .header__navbar-item-link {
     display: inline-block;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     color: var(--white-color);
     text-decoration: none;
     font-weight: 300;
@@ -70,6 +144,10 @@
 .header__navbar-icon-link {
     color: var(--white-color);
     text-decoration: none;
+}
+
+.header__navbar-icon-link:nth-child(2) {
+    margin-left: 4px;
 }
 
 .header__navbar-icon {
@@ -129,17 +207,19 @@
 /* Header notification */
 .header__notify {
     position: absolute;
+    z-index: 1;
     top: 118%;
     right: 0;
     width: 404px;
-    border: 1px solid #d3d3d3;
+    border: 1px solid rgba(0, 0, 0, 0.1);
     background-color: var(--white-color);
     cursor: default;
-    transform-origin: top right;
+    transform-origin: calc(100% - 32px) top;
     animation: headerNonitfyGrowth ease-in 0.25s;
     will-change: opacity, transform;
     display: none;
     margin-top: 4px;
+border-radius: 2px;
 }
 
 @keyframes headerNonitfyGrowth {
@@ -387,6 +467,11 @@
 
 .header__logo {
     width: 200px;
+}
+
+.header__logo-link {
+    color: transparent;
+    text-decoration: none;
 }
 
 .header__logo-img {
@@ -651,7 +736,7 @@
 .header__search-option {
     position: absolute;
     right: 0;
-    top: 100%;
+    top: calc(100% + 3px);
     width: 130px;
     list-style: none;
     box-shadow: 0 1px 3px #ccc;
